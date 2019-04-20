@@ -72,7 +72,7 @@
         android:layout_marginTop="43dp"
         android:layout_marginEnd="143dp"
         android:layout_marginRight="143dp"
-        android:text="Button"
+        android:text="camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
@@ -86,7 +86,7 @@
         android:layout_marginEnd="144dp"
         android:layout_marginRight="144dp"
         android:layout_marginBottom="46dp"
-        android:text="Button"
+        android:text="finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
