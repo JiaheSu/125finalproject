@@ -7,35 +7,33 @@
     tools:context=".IntroActivity">
 
     <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonDR"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginEnd="29dp"
         android:layout_marginRight="29dp"
         android:layout_marginBottom="215dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/unknown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/unknown" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonTL"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="29dp"
         android:layout_marginTop="120dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/unknown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/unknown" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonTR"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="39dp"
         android:layout_marginLeft="39dp"
         android:layout_marginTop="120dp"
@@ -43,17 +41,16 @@
         android:layout_marginRight="29dp"
         android:layout_marginBottom="102dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/unknown"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonDR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonTL"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/unknown" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonDL"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="29dp"
         android:layout_marginTop="102dp"
@@ -61,12 +58,11 @@
         android:layout_marginRight="39dp"
         android:layout_marginBottom="215dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/unknown"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonDR"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonTL"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/unknown" />
 </android.support.constraint.ConstraintLayout>
