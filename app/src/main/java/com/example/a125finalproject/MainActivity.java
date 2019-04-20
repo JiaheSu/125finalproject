@@ -7,21 +7,29 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button1;
+    private Button buttonStart;
+    private Button buttonAlbum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button1 = findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
+        buttonStart = findViewById(R.id.buttonStart);
+        buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, IntroActivity.class);
                 startActivity(intent);
             }
         });
-        // Hello world, hello world//
+        buttonAlbum = findViewById(R.id.buttonAlbum);
+        buttonAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AlbumActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
