@@ -26,4 +26,9 @@ public class TaskActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void open(View view) {
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTION");
+        startActivity(intent);
+    }
 }

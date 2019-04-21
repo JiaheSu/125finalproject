@@ -81,6 +81,7 @@
         android:layout_marginRight="143dp"
         android:layout_marginBottom="11dp"
         android:text="camera"
+        android:onClick="open"
         app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
