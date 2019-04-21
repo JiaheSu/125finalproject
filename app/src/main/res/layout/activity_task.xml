@@ -71,7 +71,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonCamera"
         android:layout_width="125dp"
         android:layout_height="56dp"
         android:layout_marginStart="143dp"
@@ -81,13 +81,13 @@
         android:layout_marginRight="143dp"
         android:layout_marginBottom="11dp"
         android:text="camera"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonFinish"
         android:layout_width="124dp"
         android:layout_height="55dp"
         android:layout_marginStart="143dp"
@@ -100,5 +100,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCamera" />
 </android.support.constraint.ConstraintLayout>
