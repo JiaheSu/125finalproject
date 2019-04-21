@@ -16,6 +16,13 @@ public class TaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_task);
 
         buttonCamera = findViewById(R.id.buttonCamera);
+        buttonCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
+            }
+        });
 
         buttonFinish = findViewById(R.id.buttonFinish);
         buttonFinish.setOnClickListener(new View.OnClickListener() {
@@ -25,10 +32,5 @@ public class TaskActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    public void open(View view) {
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTION");
-        startActivity(intent);
     }
 }
