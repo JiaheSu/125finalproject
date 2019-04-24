@@ -19,84 +19,84 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imageView1st"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/unknown" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView1st"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comment"
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView2nd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/unknown" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView2nd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comment"
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView3rd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/unknown" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textView3rd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comment"
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imageView4th"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/unknown" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textView4th"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comment"
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/imageView5th"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/unknown" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/textView5th"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comment"
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/imageView6th"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/unknown" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textView6th"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comment"
