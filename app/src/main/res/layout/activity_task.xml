@@ -8,7 +8,7 @@
     tools:context=".TaskActivity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageViewToL"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="16dp"
@@ -16,13 +16,13 @@
         android:layout_marginTop="116dp"
         android:layout_marginBottom="49dp"
         android:src="@drawable/unknown"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewDoL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageViewToR"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="53dp"
@@ -32,14 +32,14 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="49dp"
         android:src="@drawable/unknown"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewDoR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imageViewToL"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imageViewDoL"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="16dp"
@@ -49,11 +49,11 @@
         android:src="@drawable/unknown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewToL"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imageViewDoR"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="53dp"
@@ -66,8 +66,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDoL"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewToR"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDoL" />
 
     <Button
         android:id="@+id/buttonFinish"

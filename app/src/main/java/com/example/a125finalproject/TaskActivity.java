@@ -5,12 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class TaskActivity extends AppCompatActivity {
     private Button buttonCamera;
     private Button buttonFinish;
+    private ImageView imageViewToL;
+    private ImageView imageViewToR;
+    private ImageView imageViewDoL;
+    private ImageView imageViewDoR;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
@@ -32,5 +36,13 @@ public class TaskActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imageViewToL = findViewById(R.id.imageViewToL);
+
+        imageViewToR = findViewById(R.id.imageViewToR);
+
+        imageViewDoL = findViewById(R.id.imageViewDoL);
+
+        imageViewDoR = findViewById(R.id.imageViewDoR);
     }
 }
