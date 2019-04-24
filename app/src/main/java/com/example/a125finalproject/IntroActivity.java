@@ -5,12 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class IntroActivity extends AppCompatActivity {
     private ImageButton imageButtonTL;
+    private TextView textViewTL;
     private ImageButton imageButtonTR;
+    private TextView textViewTR;
     private ImageButton imageButtonDL;
+    private TextView textViewDL;
     private ImageButton imageButtonDR;
+    private TextView textViewDR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,8 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
+        textViewTL = findViewById(R.id.textViewTL);
+
         imageButtonTR = findViewById(R.id.imageButtonTR);
         imageButtonTR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +41,8 @@ public class IntroActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        textViewTR = findViewById(R.id.textViewTR);
 
         imageButtonDL = findViewById(R.id.imageButtonDL);
         imageButtonDL.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +53,8 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
+        textViewDL = findViewById(R.id.textViewDL);
+
         imageButtonDR = findViewById(R.id.imageButtonDR);
         imageButtonDR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +63,7 @@ public class IntroActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        textViewDR = findViewById(R.id.textViewDR);
     }
 }
