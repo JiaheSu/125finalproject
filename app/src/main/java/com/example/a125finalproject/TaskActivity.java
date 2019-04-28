@@ -31,7 +31,6 @@ public class TaskActivity extends AppCompatActivity {
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
                 }
-                startActivity(intent);
             }
         });
 
@@ -51,5 +50,12 @@ public class TaskActivity extends AppCompatActivity {
         imageViewDoL = findViewById(R.id.imageViewDoL);
 
         imageViewDoR = findViewById(R.id.imageViewDoR);
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = intent.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageViewToL.setImageBitmap(imageBitmap);
+        }
     }
 }
