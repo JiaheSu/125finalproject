@@ -45,13 +45,6 @@ public class TaskActivity extends AppCompatActivity {
         });
 
         imageViewToL = findViewById(R.id.imageViewToL);
-        protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-                Bundle extras = intent.getExtras();
-                Bitmap imageBitmap = (Bitmap) extras.get("data");
-                imageViewToL.setImageBitmap(imageBitmap);
-            }
-        }
 
         imageViewToR = findViewById(R.id.imageViewToR);
 
