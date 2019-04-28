@@ -27,6 +27,7 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(intent);
             }
         });
 
