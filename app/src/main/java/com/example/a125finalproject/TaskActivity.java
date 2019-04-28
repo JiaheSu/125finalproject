@@ -36,11 +36,21 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TaskActivity.this, AlbumActivity.class);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                }
                 startActivity(intent);
             }
         });
 
         imageViewToL = findViewById(R.id.imageViewToL);
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                imageViewToL.setImageBitmap(imageBitmap);
+            }
+        }
 
         imageViewToR = findViewById(R.id.imageViewToR);
 
