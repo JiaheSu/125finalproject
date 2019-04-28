@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private static Button buttonStart;
     private static Button buttonAlbum;
     private static TextView textViewWeather;
+    private RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +74,12 @@ public class MainActivity extends AppCompatActivity {
         //***Have changed quote into weather
         textViewWeather = findViewById(R.id.textViewWeather);
 
+        queue = Volley.newRequestQueue(this);
         find_weather();
     }
 
     //A weather API which set the textViewWeather on the main page.
     public void find_weather() {
-        System.out.println("at least we're here");
         String url = "http://api.openweathermap.org/data/2.5/weather?zip=61820,us&appid=9f17c7e37b3770ffd3356688a4cfb33c";
         JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -95,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                     double fahrenheit = (temp_int - 273 - 32) / 1.8000;
                     fahrenheit = Math.round(fahrenheit);
                     int f = (int) fahrenheit;
-
                     String commentOnWeather = "";
                     if (f < TEMP_MAX && f > TEMP_MIN) {
                         commentOnWeather = "It's a nice day to go around and explore!";
@@ -104,25 +104,23 @@ public class MainActivity extends AppCompatActivity {
                     } else if (f < TEMP_MIN) {
                         commentOnWeather = "It's way too cold outside; Stay warm while exploring!";
                     }
-
-                    textViewWeather.setText(description + "\n"
+                    commentOnWeather = description + "\n"
                             + "Current temperature: " + f + "°F"
-                            + "\n" + commentOnWeather);
-                    System.out.println("we're here!");
+                            + "\n" + commentOnWeather;
+                    textViewWeather.setText(commentOnWeather);
 
                 } catch(JSONException e) {
+                    System.out.println("Error message is : " + e);
                     e.printStackTrace();
-                    System.out.println("error!");
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                System.out.println("something");
             }
         }
         );
-        RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jor);
     }
 
