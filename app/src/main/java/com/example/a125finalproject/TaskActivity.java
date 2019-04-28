@@ -40,9 +40,6 @@ public class TaskActivity extends AppCompatActivity {
         });
 
         imageViewToL = findViewById(R.id.imageViewToL);
-        Bundle extras = intent.getExtras();
-        Bitmap imageBitmap = (Bitmap) extras.get("data");
-        imageViewToL.setImageBitmap(imageBitmap);
 
         imageViewToR = findViewById(R.id.imageViewToR);
 
