@@ -38,7 +38,7 @@ public class ThemeAndTask {
     public static String taskGenerator(String taskType) {
         String taskName = "";
         if (taskType.equals("Nature")) {
-             taskName = task_nature[randomNum(task_nature.length)];
+            taskName = task_nature[randomNum(task_nature.length)];
         }
         if (taskType.equals("Color")) {
             taskName = task_color[randomNum(task_color.length)];
