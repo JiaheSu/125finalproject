@@ -15,7 +15,6 @@ public class TaskActivity extends AppCompatActivity {
     private ImageView imageViewToR;
     private ImageView imageViewDoL;
     private ImageView imageViewDoR;
-    private Intent intent;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class TaskActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
             }
         });
 
@@ -34,8 +33,8 @@ public class TaskActivity extends AppCompatActivity {
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(TaskActivity.this, AlbumActivity.class);
-                startActivity(intent2);
+                Intent intent = new Intent(TaskActivity.this, AlbumActivity.class);
+                startActivity(intent);
             }
         });
 
