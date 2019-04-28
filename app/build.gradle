@@ -16,6 +16,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+    allprojects {
+        gradle.projectsEvaluated {
+            tasks.withType(JavaCompile) {
+                options.compilerArgs << "-Xlint:deprecation"
+            }
+        }
+    }
 }
 
 dependencies {
@@ -30,5 +47,6 @@ dependencies {
     implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/httpmime-4.5.8.jar')
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.android.volley:volley:1.1.1'
-    
+    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/commons-logging-1.2.jar')
+    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/commons-codec-1.11.jar')
 }

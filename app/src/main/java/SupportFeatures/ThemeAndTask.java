@@ -10,7 +10,7 @@ public class ThemeAndTask {
     private final static String[] task_campus = {"building", "sport", "brick", "glasses", "animal"};
 
     public static int randomNum(int max_bound) {
-        Random rand = new Random()
+        Random rand = new Random();
         int n = rand.nextInt(max_bound);
         return n;
     }
