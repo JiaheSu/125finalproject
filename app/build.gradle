@@ -42,11 +42,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/httpclient-4.5.8.jar')
-    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/httpcore-4.4.11.jar')
-    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/httpmime-4.5.8.jar')
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.android.volley:volley:1.1.1'
     implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/commons-logging-1.2.jar')
     implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/commons-codec-1.11.jar')
+    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/httpclient-4.5.8.jar')
+    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/httpmime-4.5.8.jar')
+    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/httpcore-4.4.11.jar')
+    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/json-20180813.jar')
 }
