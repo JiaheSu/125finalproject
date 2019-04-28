@@ -16,6 +16,7 @@ public class TaskActivity extends AppCompatActivity {
     private ImageView imageViewToR;
     private ImageView imageViewDoL;
     private ImageView imageViewDoR;
+    private Intent intent;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,10 @@ public class TaskActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                }
                 startActivity(intent);
             }
         });
@@ -35,18 +39,15 @@ public class TaskActivity extends AppCompatActivity {
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TaskActivity.this, AlbumActivity.class);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
-                }
-                startActivity(intent);
+                Intent intent2 = new Intent(TaskActivity.this, AlbumActivity.class);
+                startActivity(intent2);
             }
         });
 
         imageViewToL = findViewById(R.id.imageViewToL);
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
             if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-                Bundle extras = data.getExtras();
+                Bundle extras = intent.getExtras();
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
                 imageViewToL.setImageBitmap(imageBitmap);
             }
