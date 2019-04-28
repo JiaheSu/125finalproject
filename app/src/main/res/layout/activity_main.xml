@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewQuote"
+        android:id="@+id/textViewWeather"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
@@ -34,7 +34,7 @@
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
         android:layout_marginBottom="40dp"
-        android:text="Famous quote"
+        android:text="Weather"
         android:textColor="#111111"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonStart"
