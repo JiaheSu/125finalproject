@@ -3,6 +3,7 @@ package com.example.a125finalproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                             + "Current temperature: " + f + "°F"
                             + "\n" + commentOnWeather;
                     textViewWeather.setText(commentOnWeather);
+                    Log.d("myDebugTag", "debug message");
 
                 } catch(JSONException e) {
                     System.out.println("Error message is : " + e);
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("something");
+                System.out.println(error);
             }
         }
         );
