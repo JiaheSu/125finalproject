@@ -76,14 +76,6 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(TaskActivity.this, AlbumActivity.class);
-                //try {
-                //    bmp1 = (Bitmap) intentI.getExtras().get("data");
-                //    bmp2 = (Bitmap) intentII.getExtras().get("data");
-                //    bmp3 = (Bitmap) intentIII.getExtras().get("data");
-                //    bmp4 = (Bitmap) intentIV.getExtras().get("data");
-                //} catch (NullPointerException e) {
-                //    e.printStackTrace();
-                //}
                 intent2.putExtra("1stPic", bmp1);
                 intent2.putExtra("2ndPic", bmp2);
                 intent2.putExtra("3rdPic", bmp3);
