@@ -19,18 +19,34 @@ public class AlbumActivity extends AppCompatActivity {
 
         Intent intent1 = getIntent();
         Bitmap bit1 = intent1.getParcelableExtra("1stPic");
-        imageView1st.setImageBitmap(bit1);
+        try {
+            imageView1st.setImageBitmap(bit1);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
         Intent intent2 = getIntent();
         Bitmap bit2 = intent2.getParcelableExtra("2ndPic");
-        imageView2nd.setImageBitmap(bit2);
+        try {
+            imageView2nd.setImageBitmap(bit2);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
         Intent intent3 = getIntent();
         Bitmap bit3 = intent3.getParcelableExtra("3rdPic");
-        imageView3rd.setImageBitmap(bit3);
+        try {
+            imageView3rd.setImageBitmap(bit3);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
         Intent intent4 = getIntent();
         Bitmap bit4 = intent4.getParcelableExtra("4thPic");
-        imageView4th.setImageBitmap(bit4);
+        try {
+            imageView4th.setImageBitmap(bit4);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 }
