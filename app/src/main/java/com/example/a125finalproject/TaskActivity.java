@@ -2,14 +2,13 @@ package com.example.a125finalproject;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import java.util.List;
 
 public class TaskActivity extends AppCompatActivity {
     private Button buttonCamera;
@@ -18,18 +17,19 @@ public class TaskActivity extends AppCompatActivity {
     private ImageView imageViewToR;
     private ImageView imageViewDoL;
     private ImageView imageViewDoR;
-    private Intent intentI;
+    private Uri imageUri;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
+        imageViewToL = findViewById(R.id.imageViewToL);
         buttonCamera = findViewById(R.id.buttonCamera);
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Intent intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (intentI.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentI, REQUEST_IMAGE_CAPTURE);
                 }
@@ -44,15 +44,17 @@ public class TaskActivity extends AppCompatActivity {
                 startActivity(intent2);
             }
         });
-
-        imageViewToL = findViewById(R.id.imageViewToL);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras1 = intentI.getExtras();
-            Bitmap imageBitmap1 = (Bitmap) extras1.get("data");
-            imageViewToL.setImageBitmap(imageBitmap1);
+            try {
+                Bundle extras1 = intent.getExtras();
+                Bitmap imageBitmap1 = (Bitmap) extras1.get("data");
+                imageViewToL.setImageBitmap(imageBitmap1);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
