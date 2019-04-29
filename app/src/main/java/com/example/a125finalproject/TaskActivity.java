@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.List;
+
 public class TaskActivity extends AppCompatActivity {
     private Button buttonCamera;
     private Button buttonFinish;
@@ -17,7 +19,7 @@ public class TaskActivity extends AppCompatActivity {
     private ImageView imageViewToR;
     private ImageView imageViewDoL;
     private ImageView imageViewDoR;
-    private Uri imageUri;
+    private List<Intent> list;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class TaskActivity extends AppCompatActivity {
                 if (intentI.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentI, REQUEST_IMAGE_CAPTURE);
                 }
+                list.add(intentI);
             }
         });
 
@@ -49,9 +52,21 @@ public class TaskActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             try {
-                Bundle extras1 = intent.getExtras();
+                Bundle extras1 = list.get(0).getExtras();
                 Bitmap imageBitmap1 = (Bitmap) extras1.get("data");
                 imageViewToL.setImageBitmap(imageBitmap1);
+
+                Bundle extras2 = list.get(1).getExtras();
+                Bitmap imageBitmap2 = (Bitmap) extras2.get("data");
+                imageViewToR.setImageBitmap(imageBitmap2);
+
+                Bundle extras3 = list.get(2).getExtras();
+                Bitmap imageBitmap3 = (Bitmap) extras3.get("data");
+                imageViewToL.setImageBitmap(imageBitmap3);
+
+                Bundle extras4 = list.get(3).getExtras();
+                Bitmap imageBitmap4 = (Bitmap) extras4.get("data");
+                imageViewToL.setImageBitmap(imageBitmap4);
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
