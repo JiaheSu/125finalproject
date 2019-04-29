@@ -62,11 +62,11 @@ public class TaskActivity extends AppCompatActivity {
 
                 Bundle extras3 = list.get(2).getExtras();
                 Bitmap imageBitmap3 = (Bitmap) extras3.get("data");
-                imageViewToL.setImageBitmap(imageBitmap3);
+                imageViewDoL.setImageBitmap(imageBitmap3);
 
                 Bundle extras4 = list.get(3).getExtras();
                 Bitmap imageBitmap4 = (Bitmap) extras4.get("data");
-                imageViewToL.setImageBitmap(imageBitmap4);
+                imageViewDoR.setImageBitmap(imageBitmap4);
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
