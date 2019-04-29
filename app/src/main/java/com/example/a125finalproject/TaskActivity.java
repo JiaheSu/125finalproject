@@ -72,6 +72,10 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(TaskActivity.this, AlbumActivity.class);
+                intent2.putExtra("1stPic", intentI);
+                intent2.putExtra("2ndPic", intentII);
+                intent2.putExtra("3rdPic", intentIII);
+                intent2.putExtra("4thPic", intentIV);
                 startActivity(intent2);
             }
         });
