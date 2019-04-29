@@ -76,14 +76,14 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(TaskActivity.this, AlbumActivity.class);
-                try {
-                    bmp1 = (Bitmap) intentI.getExtras().get("data");
-                    bmp2 = (Bitmap) intentII.getExtras().get("data");
-                    bmp3 = (Bitmap) intentIII.getExtras().get("data");
-                    bmp4 = (Bitmap) intentIV.getExtras().get("data");
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                }
+                //try {
+                //    bmp1 = (Bitmap) intentI.getExtras().get("data");
+                //    bmp2 = (Bitmap) intentII.getExtras().get("data");
+                //    bmp3 = (Bitmap) intentIII.getExtras().get("data");
+                //    bmp4 = (Bitmap) intentIV.getExtras().get("data");
+                //} catch (NullPointerException e) {
+                //    e.printStackTrace();
+                //}
                 intent2.putExtra("1stPic", bmp1);
                 intent2.putExtra("2ndPic", bmp2);
                 intent2.putExtra("3rdPic", bmp3);
@@ -99,29 +99,29 @@ public class TaskActivity extends AppCompatActivity {
             case 1:
                 if(resultCode == RESULT_OK){
                     Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageBToL.setImageBitmap(bmp);
+                    bmp1 = (Bitmap) extras.get("data");
+                    imageBToL.setImageBitmap(bmp1);
                 }
                 break;
             case 2:
                 if(resultCode == RESULT_OK) {
                     Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageBToR.setImageBitmap(bmp);
+                    bmp2 = (Bitmap) extras.get("data");
+                    imageBToR.setImageBitmap(bmp2);
                 }
                 break;
             case 3:
                 if(resultCode == RESULT_OK) {
                     Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageBDoL.setImageBitmap(bmp);
+                    bmp3 = (Bitmap) extras.get("data");
+                    imageBDoL.setImageBitmap(bmp3);
                 }
                 break;
             case 4:
                 if(resultCode == RESULT_OK) {
                     Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageBDoR.setImageBitmap(bmp);
+                    bmp4 = (Bitmap) extras.get("data");
+                    imageBDoR.setImageBitmap(bmp4);
                 }
                 break;
         }
