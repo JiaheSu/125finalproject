@@ -16,8 +16,6 @@ import android.widget.ImageView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TaskActivity extends AppCompatActivity {
     private Button buttonCamera;
@@ -30,10 +28,6 @@ public class TaskActivity extends AppCompatActivity {
     private Intent intentII;
     private Intent intentIII;
     private Intent intentIV;
-    private Uri imageUriI;
-    private Uri imageUriII;
-    private Uri imageUriIII;
-    private Uri imageUriIV;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,87 +38,19 @@ public class TaskActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                File outputI = new File(getExternalCacheDir(), "output_I.jpg");
-                try {
-                    if (outputI.exists()) {
-                        outputI.delete();
-                    }
-                    outputI.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (Build.VERSION.SDK_INT >= 24) {
-                    imageUriI = FileProvider.getUriForFile(TaskActivity.this,
-                            "com.example.cameraalbum.fileprovider", outputI);
-                } else {
-                    imageUriI = Uri.fromFile(outputI);
-                }
-
-                File outputII = new File(getExternalCacheDir(), "output_II.jpg");
-                try {
-                    if (outputII.exists()) {
-                        outputII.delete();
-                    }
-                    outputII.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (Build.VERSION.SDK_INT >= 24) {
-                    imageUriII = FileProvider.getUriForFile(TaskActivity.this,
-                            "com.example.cameraalbum.fileprovider", outputII);
-                } else {
-                    imageUriII = Uri.fromFile(outputII);
-                }
-
-                File outputIII = new File(getExternalCacheDir(), "output_III.jpg");
-                try {
-                    if (outputIII.exists()) {
-                        outputIII.delete();
-                    }
-                    outputIII.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (Build.VERSION.SDK_INT >= 24) {
-                    imageUriIII = FileProvider.getUriForFile(TaskActivity.this,
-                            "com.example.cameraalbum.fileprovider", outputIII);
-                } else {
-                    imageUriIII = Uri.fromFile(outputIII);
-                }
-
-                File outputIV = new File(getExternalCacheDir(), "output_IV.jpg");
-                try {
-                    if (outputIV.exists()) {
-                        outputIV.delete();
-                    }
-                    outputIV.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (Build.VERSION.SDK_INT >= 24) {
-                    imageUriIV = FileProvider.getUriForFile(TaskActivity.this,
-                            "com.example.cameraalbum.fileprovider", outputIV);
-                } else {
-                    imageUriIV = Uri.fromFile(outputIV);
-                }
-
                 intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                intentI.putExtra(MediaStore.EXTRA_OUTPUT, imageUriI);
                 if (intentI.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentI, 1);
                 }
                 intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                intentII.putExtra(MediaStore.EXTRA_OUTPUT, imageUriII);
                 if (intentII.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentII, 2);
                 }
                 intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                intentIII.putExtra(MediaStore.EXTRA_OUTPUT, imageUriIII);
                 if (intentIII.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentIII, 3);
                 }
                 intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                intentIV.putExtra(MediaStore.EXTRA_OUTPUT, imageUriIV);
                 if (intentIV.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentIV, 4);
                 }
@@ -146,45 +72,31 @@ public class TaskActivity extends AppCompatActivity {
         switch(requestCode){
             case 1:
                 if(resultCode == RESULT_OK){
-                    try {
-                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriI));
-                        imageViewToL.setImageBitmap(bmp);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewToL.setImageBitmap(bmp);
                 }
                 break;
             case 2:
                 if(resultCode == RESULT_OK) {
-                    try {
-                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriII));
-                        imageViewToR.setImageBitmap(bmp);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewToR.setImageBitmap(bmp);
                 }
                 break;
             case 3:
                 if(resultCode == RESULT_OK) {
-                    try {
-                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriIII));
-                        imageViewDoL.setImageBitmap(bmp);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewDoL.setImageBitmap(bmp);
                 }
                 break;
             case 4:
                 if(resultCode == RESULT_OK) {
-                    try {
-                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriIV));
-                        imageViewDoR.setImageBitmap(bmp);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewDoR.setImageBitmap(bmp);
                 }
-                break;
-            default:
                 break;
         }
     }
