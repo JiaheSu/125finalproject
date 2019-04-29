@@ -2,6 +2,7 @@ package com.example.a125finalproject;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -144,31 +146,45 @@ public class TaskActivity extends AppCompatActivity {
         switch(requestCode){
             case 1:
                 if(resultCode == RESULT_OK){
-                    Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewToL.setImageBitmap(bmp);
+                    try {
+                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriI));
+                        imageViewToL.setImageBitmap(bmp);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
             case 2:
                 if(resultCode == RESULT_OK) {
-                    Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewToR.setImageBitmap(bmp);
+                    try {
+                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriII));
+                        imageViewToR.setImageBitmap(bmp);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
             case 3:
                 if(resultCode == RESULT_OK) {
-                    Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewDoL.setImageBitmap(bmp);
+                    try {
+                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriIII));
+                        imageViewDoL.setImageBitmap(bmp);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
             case 4:
                 if(resultCode == RESULT_OK) {
-                    Bundle extras = list.getExtras();
-                    Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewDoR.setImageBitmap(bmp);
+                    try {
+                        Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUriIV));
+                        imageViewDoR.setImageBitmap(bmp);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
+                break;
+            default:
                 break;
         }
     }
