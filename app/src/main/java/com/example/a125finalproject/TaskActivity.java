@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskActivity extends AppCompatActivity {
@@ -19,7 +20,8 @@ public class TaskActivity extends AppCompatActivity {
     private ImageView imageViewToR;
     private ImageView imageViewDoL;
     private ImageView imageViewDoR;
-    private List<Intent> list;
+    private Intent intentI;
+    private List<Intent> list = new ArrayList<>();
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class TaskActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (intentI.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentI, REQUEST_IMAGE_CAPTURE);
                 }
