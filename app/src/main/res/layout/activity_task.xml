@@ -8,20 +8,20 @@
     tools:context=".TaskActivity">
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/imageBToL"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="116dp"
         android:layout_marginBottom="49dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+        app:layout_constraintBottom_toTopOf="@+id/imageBDoL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageBToR"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="53dp"
@@ -30,14 +30,14 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="49dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButtonDoR"
+        app:layout_constraintBottom_toTopOf="@+id/imageBDoR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton1"
+        app:layout_constraintStart_toEndOf="@+id/imageBToL"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imageBDoL"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="16dp"
@@ -46,11 +46,11 @@
         android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton1"
+        app:layout_constraintTop_toBottomOf="@+id/imageBToL"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButtonDoR"
+        android:id="@+id/imageBDoR"
         android:layout_width="163dp"
         android:layout_height="169dp"
         android:layout_marginStart="53dp"
@@ -61,8 +61,8 @@
         android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/imageBDoL"
+        app:layout_constraintTop_toBottomOf="@+id/imageBToR"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button

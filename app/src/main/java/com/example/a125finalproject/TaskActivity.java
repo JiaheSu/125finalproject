@@ -6,15 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
 public class TaskActivity extends AppCompatActivity {
-    private Button buttonCamera;
+    private ImageButton imageBToL;
+    private ImageButton imageBToR;
+    private ImageButton imageBDoL;
+    private ImageButton imageBDoR;
     private Button buttonFinish;
-    private ImageView imageViewToL;
-    private ImageView imageViewToR;
-    private ImageView imageViewDoL;
-    private ImageView imageViewDoR;
     private Intent intentI;
     private Intent intentII;
     private Intent intentIII;
@@ -24,26 +23,34 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
-        imageViewToL = findViewById(R.id.imageViewToL);
-        buttonCamera = findViewById(R.id.buttonCamera);
-        buttonCamera.setOnClickListener(new View.OnClickListener() {
+        imageBToL = findViewById(R.id.imageBToL);
+        imageBToR = findViewById(R.id.imageBToR);
+        imageBDoL = findViewById(R.id.imageBDoL);
+        imageBDoR = findViewById(R.id.imageBDoR);
+        imageBToL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentI.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentI, 1);
-                }
-                intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentII.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentII, 2);
-                }
-                intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentIII.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentIII, 3);
-                }
-                intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentIV.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentIV, 4);
+                switch (v.getId()) {
+                    case R.id.imageBToL:
+                    intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    if (intentI.resolveActivity(getPackageManager()) != null) {
+                        startActivityForResult(intentI, 1);
+                    }
+                    case R.id.imageBToR:
+                    intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    if (intentII.resolveActivity(getPackageManager()) != null) {
+                        startActivityForResult(intentII, 2);
+                    }
+                    case R.id.imageBDoL:
+                    intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    if (intentIII.resolveActivity(getPackageManager()) != null) {
+                        startActivityForResult(intentIII, 3);
+                    }
+                    case R.id.imageBDoR:
+                    intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    if (intentIV.resolveActivity(getPackageManager()) != null) {
+                        startActivityForResult(intentIV, 4);
+                    }
                 }
             }
         });
@@ -65,28 +72,28 @@ public class TaskActivity extends AppCompatActivity {
                 if(resultCode == RESULT_OK){
                     Bundle extras = list.getExtras();
                     Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewToL.setImageBitmap(bmp);
+                    imageBToL.setImageBitmap(bmp);
                 }
                 break;
             case 2:
                 if(resultCode == RESULT_OK) {
                     Bundle extras = list.getExtras();
                     Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewToR.setImageBitmap(bmp);
+                    imageBToR.setImageBitmap(bmp);
                 }
                 break;
             case 3:
                 if(resultCode == RESULT_OK) {
                     Bundle extras = list.getExtras();
                     Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewDoL.setImageBitmap(bmp);
+                    imageBDoL.setImageBitmap(bmp);
                 }
                 break;
             case 4:
                 if(resultCode == RESULT_OK) {
                     Bundle extras = list.getExtras();
                     Bitmap bmp = (Bitmap) extras.get("data");
-                    imageViewDoR.setImageBitmap(bmp);
+                    imageBDoR.setImageBitmap(bmp);
                 }
                 break;
         }
