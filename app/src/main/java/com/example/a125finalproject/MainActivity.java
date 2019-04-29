@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     final static int TEMP_MAX = 85;
     private static ImageView imageView;
     private static Button buttonStart;
-    private static Button buttonAlbum;
     private static TextView textViewWeather;
     private RequestQueue queue;
 
@@ -46,14 +45,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, IntroActivity.class);
-                startActivity(intent);
-            }
-        });
-        buttonAlbum = findViewById(R.id.buttonAlbum);
-        buttonAlbum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AlbumActivity.class);
                 startActivity(intent);
             }
         });
