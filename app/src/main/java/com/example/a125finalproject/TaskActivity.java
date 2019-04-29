@@ -30,30 +30,39 @@ public class TaskActivity extends AppCompatActivity {
         imageBToL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.imageBToL:
-                    intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    if (intentI.resolveActivity(getPackageManager()) != null) {
-                        startActivityForResult(intentI, 1);
-                    }
-                    break;
-                    case R.id.imageBToR:
-                    intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    if (intentII.resolveActivity(getPackageManager()) != null) {
-                        startActivityForResult(intentII, 2);
-                    }
-                    break;
-                    case R.id.imageBDoL:
-                    intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    if (intentIII.resolveActivity(getPackageManager()) != null) {
-                        startActivityForResult(intentIII, 3);
-                    }
-                    break;
-                    case R.id.imageBDoR:
-                    intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    if (intentIV.resolveActivity(getPackageManager()) != null) {
-                        startActivityForResult(intentIV, 4);
-                    }
+                intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentI.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentI, 1);
+                }
+            }
+        });
+
+        imageBToR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentII.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentII, 2);
+                }
+            }
+        });
+
+        imageBDoL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentIII.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentIII, 3);
+                }
+            }
+        });
+
+        imageBDoR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentIV.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentIV, 4);
                 }
             }
         });
