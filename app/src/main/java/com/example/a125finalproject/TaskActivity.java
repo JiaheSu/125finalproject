@@ -36,29 +36,28 @@ public class TaskActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.imageViewToL:
-                        intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         if (intentI.resolveActivity(getPackageManager()) != null) {
                             startActivityForResult(intentI, 1);
                         }
                         break;
                     case R.id.imageViewToR:
-                        intentII = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         if (intentII.resolveActivity(getPackageManager()) != null) {
                             startActivityForResult(intentII, 2);
                         }
                         break;
                     case R.id.imageViewDoL:
-                        intentIII = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         if (intentIII.resolveActivity(getPackageManager()) != null) {
                             startActivityForResult(intentIII, 3);
                         }
                         break;
                     case R.id.imageViewDoR:
-                        intentIV = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         if (intentIV.resolveActivity(getPackageManager()) != null) {
                             startActivityForResult(intentIV, 4);
                         }
-                        break;
                 }
             }
         });
