@@ -21,8 +21,9 @@ public class TaskActivity extends AppCompatActivity {
     private ImageView imageViewDoL;
     private ImageView imageViewDoR;
     private Intent intentI;
-    private List<Intent> list = new ArrayList<>();
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+    private Intent intentII;
+    private Intent intentIII;
+    private Intent intentIV;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +34,32 @@ public class TaskActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentI.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentI, REQUEST_IMAGE_CAPTURE);
+                switch (v.getId()) {
+                    case R.id.imageViewToL:
+                        intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (intentI.resolveActivity(getPackageManager()) != null) {
+                            startActivityForResult(intentI, 1);
+                        }
+                        break;
+                    case R.id.imageViewToR:
+                        intentII = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (intentII.resolveActivity(getPackageManager()) != null) {
+                            startActivityForResult(intentII, 2);
+                        }
+                        break;
+                    case R.id.imageViewDoL:
+                        intentIII = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (intentIII.resolveActivity(getPackageManager()) != null) {
+                            startActivityForResult(intentIII, 3);
+                        }
+                        break;
+                    case R.id.imageViewDoR:
+                        intentIV = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (intentIV.resolveActivity(getPackageManager()) != null) {
+                            startActivityForResult(intentIV, 4);
+                        }
+                        break;
                 }
-                list.add(intentI);
             }
         });
 
@@ -52,14 +74,36 @@ public class TaskActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent list) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            try {
-                Bundle extras = list.getExtras();
-                Bitmap imageBitmap = (Bitmap) extras.get("data");
-                imageViewToL.setImageBitmap(imageBitmap);
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-            }
+        super.onActivityResult(requestCode, resultCode, list);
+        switch(requestCode){
+            case 1:
+                if(resultCode == RESULT_OK){
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewToL.setImageBitmap(bmp);
+                }
+                break;
+            case 2:
+                if(resultCode == RESULT_OK) {
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewToR.setImageBitmap(bmp);
+                }
+                break;
+            case 3:
+                if(resultCode == RESULT_OK) {
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewDoL.setImageBitmap(bmp);
+                }
+                break;
+            case 4:
+                if(resultCode == RESULT_OK) {
+                    Bundle extras = list.getExtras();
+                    Bitmap bmp = (Bitmap) extras.get("data");
+                    imageViewDoR.setImageBitmap(bmp);
+                }
+                break;
         }
     }
 }
