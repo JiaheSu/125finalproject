@@ -19,6 +19,7 @@ public class TaskActivity extends AppCompatActivity {
     private ImageView imageViewDoL;
     private ImageView imageViewDoR;
     private List<Intent> list;
+    private Intent intentI;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +30,13 @@ public class TaskActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    list.add(intent);
-                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                intentI = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentI.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentI, REQUEST_IMAGE_CAPTURE);
                 }
             }
         });
+        list.add(intentI);
 
         buttonFinish = findViewById(R.id.buttonFinish);
         buttonFinish.setOnClickListener(new View.OnClickListener() {
