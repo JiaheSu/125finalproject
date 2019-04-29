@@ -18,27 +18,19 @@ public class AlbumActivity extends AppCompatActivity {
         setContentView(R.layout.activity_album);
 
         Intent intent1 = getIntent();
-        Bundle message = intent1.getBundleExtra("1stPic");
-        ImageView imageView1st = findViewById(R.id.imageView1st);
-        Bitmap bmp = (Bitmap) message.get("data");
-        imageView1st.setImageBitmap(bmp);
+        Bitmap bit1 = intent1.getParcelableExtra("1stPic");
+        imageView1st.setImageBitmap(bit1);
 
         Intent intent2 = getIntent();
-        Bundle message2 = intent2.getBundleExtra("2ndPic");
-        ImageView imageView2nd = findViewById(R.id.imageView2nd);
-        Bitmap bmp2 = (Bitmap) message2.get("data");
-        imageView2nd.setImageBitmap(bmp2);
+        Bitmap bit2 = intent2.getParcelableExtra("2ndPic");
+        imageView2nd.setImageBitmap(bit2);
 
         Intent intent3 = getIntent();
-        Bundle message3 = intent3.getBundleExtra("3rdPic");
-        ImageView imageView3rd = findViewById(R.id.imageView3rd);
-        Bitmap bmp3 = (Bitmap) message3.get("data");
-        imageView3rd.setImageBitmap(bmp3);
+        Bitmap bit3 = intent3.getParcelableExtra("3rdPic");
+        imageView3rd.setImageBitmap(bit3);
 
         Intent intent4 = getIntent();
-        Bundle message4 = intent4.getBundleExtra("4thPic");
-        ImageView imageView4th = findViewById(R.id.imageView4th);
-        Bitmap bmp4 = (Bitmap) message4.get("data");
-        imageView4th.setImageBitmap(bmp4);
+        Bitmap bit4 = intent4.getParcelableExtra("4thPic");
+        imageView4th.setImageBitmap(bit4);
     }
 }
