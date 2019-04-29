@@ -38,7 +38,6 @@ public class TaskActivity extends AppCompatActivity {
                 if (intentI.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentI, 1);
                 }
-                bmp1 = (Bitmap) intentI.getExtras().get("data");
             }
         });
 
@@ -49,7 +48,6 @@ public class TaskActivity extends AppCompatActivity {
                 if (intentII.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentII, 2);
                 }
-                bmp2 = (Bitmap) intentII.getExtras().get("data");
             }
         });
 
@@ -60,7 +58,6 @@ public class TaskActivity extends AppCompatActivity {
                 if (intentIII.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentIII, 3);
                 }
-                bmp3 = (Bitmap) intentIII.getExtras().get("data");
             }
         });
 
@@ -71,7 +68,6 @@ public class TaskActivity extends AppCompatActivity {
                 if (intentIV.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentIV, 4);
                 }
-                bmp4 = (Bitmap) intentIV.getExtras().get("data");
             }
         });
 
@@ -80,6 +76,10 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(TaskActivity.this, AlbumActivity.class);
+                bmp1 = (Bitmap) intentI.getExtras().get("data");
+                bmp2 = (Bitmap) intentII.getExtras().get("data");
+                bmp3 = (Bitmap) intentIII.getExtras().get("data");
+                bmp4 = (Bitmap) intentIV.getExtras().get("data");
                 intent2.putExtra("1stPic", bmp1);
                 intent2.putExtra("2ndPic", bmp2);
                 intent2.putExtra("3rdPic", bmp3);
