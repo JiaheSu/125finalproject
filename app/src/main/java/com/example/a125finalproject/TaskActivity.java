@@ -34,30 +34,21 @@ public class TaskActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.imageViewToL:
-                        intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                        if (intentI.resolveActivity(getPackageManager()) != null) {
-                            startActivityForResult(intentI, 1);
-                        }
-                        break;
-                    case R.id.imageViewToR:
-                        intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                        if (intentII.resolveActivity(getPackageManager()) != null) {
-                            startActivityForResult(intentII, 2);
-                        }
-                        break;
-                    case R.id.imageViewDoL:
-                        intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                        if (intentIII.resolveActivity(getPackageManager()) != null) {
-                            startActivityForResult(intentIII, 3);
-                        }
-                        break;
-                    case R.id.imageViewDoR:
-                        intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                        if (intentIV.resolveActivity(getPackageManager()) != null) {
-                            startActivityForResult(intentIV, 4);
-                        }
+                intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentI.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentI, 1);
+                }
+                intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentII.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentII, 2);
+                }
+                intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentIII.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentIII, 3);
+                }
+                intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentIV.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentIV, 4);
                 }
             }
         });
