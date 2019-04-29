@@ -81,16 +81,16 @@ public class TaskActivity extends AppCompatActivity {
                 try {
                     //Write file
                     String filename1 = "bitmap1.png";
-                    FileOutputStream stream1 = getApplicationContext().openFileOutput(filename1, Context.MODE_PRIVATE);
+                    FileOutputStream stream1 = openFileOutput(filename1, Context.MODE_PRIVATE);
                     bmp1.compress(Bitmap.CompressFormat.PNG, 100, stream1);
                     String filename2 = "bitmap2.png";
-                    FileOutputStream stream2 = getApplicationContext().openFileOutput(filename2, Context.MODE_PRIVATE);
+                    FileOutputStream stream2 = openFileOutput(filename2, Context.MODE_PRIVATE);
                     bmp2.compress(Bitmap.CompressFormat.PNG, 100, stream2);
                     String filename3 = "bitmap3.png";
-                    FileOutputStream stream3 = getApplicationContext().openFileOutput(filename3, Context.MODE_PRIVATE);
+                    FileOutputStream stream3 = openFileOutput(filename3, Context.MODE_PRIVATE);
                     bmp3.compress(Bitmap.CompressFormat.PNG, 100, stream3);
                     String filename4 = "bitmap4.png";
-                    FileOutputStream stream4 = getApplicationContext().openFileOutput(filename4, Context.MODE_PRIVATE);
+                    FileOutputStream stream4 = openFileOutput(filename4, Context.MODE_PRIVATE);
                     bmp4.compress(Bitmap.CompressFormat.PNG, 100, stream4);
 
                     //Cleanup
