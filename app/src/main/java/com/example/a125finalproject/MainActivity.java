@@ -4,6 +4,7 @@ package com.example.a125finalproject;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,16 +13,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import android.app.DownloadManager;
 import android.widget.Toast;
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -34,6 +38,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.WeakReference;
+import java.net.HttpURLConnection;
+import java.util.HashMap;
+import java.util.Map;
 
 import edmt.dev.edmtdevcognitivevision.Contract.AnalysisResult;
 import edmt.dev.edmtdevcognitivevision.Contract.Caption;
@@ -43,8 +51,6 @@ import edmt.dev.edmtdevcognitivevision.VisionServiceRestClient;
 
 
 public class MainActivity extends AppCompatActivity {
-    private final String API_KEY = "6bf2823f8f9940ad95a84f981a9f8bab";
-    private final String API_LINK = "https://westcentralus.api.cognitive.microsoft.com/";
     final static int TEMP_MIN = 55;
     final static int TEMP_MAX = 85;
     private static ImageView imageView;
@@ -129,63 +135,5 @@ public class MainActivity extends AppCompatActivity {
         }
         );
         queue.add(jor);
-    }
-    public void Azure_Analysis() {
-
-        //Declare Vision Client
-        final VisionServiceClient visionServiceClient = new VisionServiceRestClient(API_KEY, API_LINK);
-
-        //Get bitmap and add to ImageView
-        final Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.starrynight);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-        final ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
-
-        //Use async task to request API
-        AsyncTask<InputStream,String,String> visionTask = new AsyncTask<InputStream, String, String>() {
-            //ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-            //@Override
-            //protected void onPreExecute() { progressDialog.show(); }
-
-            @Override
-            protected String doInBackground(InputStream... inputStreams) {
-                try {
-                    publishProgress("Recognizing...");
-                    String[] features = {"Description"}; //Get Description from API Return Result
-                    String[] details = {};
-
-                    AnalysisResult result = visionServiceClient.analyzeImage(inputStreams[0], features, details);
-                    String jsonResult = new Gson().toJson(result);
-                    return jsonResult;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (VisionServiceException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(String s) {
-                if(TextUtils.isEmpty(s)) {
-                    Toast.makeText(MainActivity.this, "API return empty result", Toast.LENGTH_SHORT);
-                } else {
-                    //progressDialog.dismiss();
-
-                    AnalysisResult result = new Gson().fromJson(s, AnalysisResult.class);
-                    StringBuilder result_Text = new StringBuilder();
-                    for (Caption caption : result.description.captions)
-                        result_Text.append(caption.text);
-                }
-            }
-
-            //@Override
-            //protected void onProgressUpdate(String... values) {
-                //progressDialog.setMessage(values[0]);
-            //}
-        };
-
-        //Run task
-        visionTask.execute(inputStream);
     }
 }
