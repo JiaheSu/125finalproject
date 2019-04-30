@@ -1,7 +1,9 @@
 package com.example.a125finalproject;
 
 //import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -43,11 +45,13 @@ import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
 import edmt.dev.edmtdevcognitivevision.Contract.AnalysisResult;
 import edmt.dev.edmtdevcognitivevision.Contract.Caption;
 import edmt.dev.edmtdevcognitivevision.Rest.VisionServiceException;
 import edmt.dev.edmtdevcognitivevision.VisionServiceClient;
 import edmt.dev.edmtdevcognitivevision.VisionServiceRestClient;
+*/
 
 
 public class MainActivity extends AppCompatActivity {

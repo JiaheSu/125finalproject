@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">125 final project</string>
+    <string name="httphost">https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze</string>
+    <string name="apikey">6bf2823f8f9940ad95a84f981a9f8bab</string>
 </resources>

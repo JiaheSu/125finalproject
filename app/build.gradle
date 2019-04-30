@@ -44,6 +44,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.android.volley:volley:1.1.1'
-    implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/json-20180813.jar')
-    implementation 'com.github.eddydn:EDMTDevCognitiveVision:1.3'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.8'
 }
