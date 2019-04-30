@@ -150,6 +150,8 @@ public class TaskActivity extends AppCompatActivity {
                 }
             }
         });
+        QUEUE = Volley.newRequestQueue(TaskActivity.this);
+        httpGET(URLHTTP, bitmap);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent list) {
@@ -185,9 +187,6 @@ public class TaskActivity extends AppCompatActivity {
                 break;
         }
     }
-    QUEUE = Volley.newRequestQueue(TaskActivity.this);
-        httpGET(URLHTTP, bitmap);
-}
 
 
     /**
@@ -254,7 +253,7 @@ public class TaskActivity extends AppCompatActivity {
         JsonArray tags = description.getAsJsonArray("tags");
         for (JsonElement n: tags) {
             if (n.getAsString().equals(task)) {
-                imageViewDoL.setImageResource(R.drawable.starrynight);
+                imageBDoL.setImageResource(R.drawable.starrynight);
             }
         }
 
