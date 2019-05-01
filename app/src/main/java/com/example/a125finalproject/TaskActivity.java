@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -68,14 +69,15 @@ public class TaskActivity extends AppCompatActivity {
     private TextView quoteView;
     private String quoteText;
     private int numOfTask = 4;
-
-    private Button buttonCamera;
     private Button buttonFinish;
-    private ImageView imageViewToL;
-    private ImageView imageViewToR;
-    private ImageView imageViewDoL;
-    private ImageView imageViewDoR;
-    private Intent intent;
+    private ImageButton imageBToL;
+    private ImageButton imageBToR;
+    private ImageButton imageBDoL;
+    private ImageButton imageBDoR;
+    private Intent intentI;
+    private Intent intentII;
+    private Intent intentIII;
+    private Intent intentIV;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,15 +85,47 @@ public class TaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_task);
         bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(),R.drawable.starrynight);
 
-        buttonCamera = findViewById(R.id.buttonCamera);
-        buttonCamera.setOnClickListener(new View.OnClickListener() {
+        imageBToL = findViewById(R.id.imageBToL);
+        imageBToR = findViewById(R.id.imageBToR);
+        imageBDoL = findViewById(R.id.imageBDoL);
+        imageBDoR = findViewById(R.id.imageBDoR);
+        imageBToL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentI.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentI, 1);
                 }
-                startActivity(intent);
+            }
+        });
+
+        imageBToR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentII.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentII, 2);
+                }
+            }
+        });
+
+        imageBDoL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentIII.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentIII, 3);
+                }
+            }
+        });
+
+        imageBDoR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intentIV.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intentIV, 4);
+                }
             }
         });
 
@@ -103,14 +137,6 @@ public class TaskActivity extends AppCompatActivity {
                 startActivity(intent2);
             }
         });
-
-        imageViewToL = findViewById(R.id.imageViewToL);
-
-        imageViewToR = findViewById(R.id.imageViewToR);
-
-        imageViewDoL = findViewById(R.id.imageViewDoL);
-
-        imageViewDoR = findViewById(R.id.imageViewDoR);
 
         quoteView = findViewById(R.id.quoteView);
 
