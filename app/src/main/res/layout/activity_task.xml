@@ -10,7 +10,7 @@
     <ImageButton
         android:id="@+id/imageBDoR"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="163dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="80dp"
@@ -69,11 +69,11 @@
 
     <TextView
         android:id="@+id/quoteView"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="30dp"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="100dp"
         android:text="Start exploring!"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
