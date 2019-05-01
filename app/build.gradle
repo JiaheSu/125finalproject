@@ -46,4 +46,5 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'org.apache.httpcomponents:httpclient:4.5.8'
     implementation files('/Users/Portia_Zhang/Desktop/125finalproject/lib/forismatic-api-java.jar')
+    implementation files('/Users/swhjmsjh/AndroidStudioProjects/125finalproject/lib/forismatic-api-java.jar')
 }
