@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -22,8 +23,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.forismastic.Forismatic;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -31,6 +34,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
@@ -40,6 +44,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 /*
 import edmt.dev.edmtdevcognitivevision.Contract.AnalysisResult;
 import edmt.dev.edmtdevcognitivevision.Contract.Caption;
@@ -57,6 +62,12 @@ public class TaskActivity extends AppCompatActivity {
     //later will be changed into the bitmap sent to API - starrynight is an example for testing
     public Bitmap bitmap;
     private String task = "yellow";
+    private RequestQueue queue;
+
+    //a textview that display the quote and the number of remaining tasks
+    private TextView quoteView;
+    private String quoteText;
+    private int numOfTask = 4;
 
     private Button buttonCamera;
     private Button buttonFinish;
@@ -101,23 +112,26 @@ public class TaskActivity extends AppCompatActivity {
 
         imageViewDoR = findViewById(R.id.imageViewDoR);
 
-        QUEUE = Volley.newRequestQueue(TaskActivity.this);
-        httpGET(URLHTTP, bitmap);
+        quoteView = findViewById(R.id.quoteView);
+
+        //QUEUE = Volley.newRequestQueue(TaskActivity.this);
+        //httpGET(URLHTTP, bitmap);
+        new getQuoteTask().execute();
     }
 
-
+/*
     /**
      * Convert an image to a byte array, upload to the Microsoft Cognitive Services API,
      * and return a result.
      *
      * @param currentBitmap the bitmap to process
      * @return unused result
-     * */
+     *
 
      public void httpGET(String url, Bitmap currentBitmap) {
          /*
           * Convert the image from a Bitmap to a byte array for upload.
-          * */
+          *
 
          final ByteArrayOutputStream stream = new ByteArrayOutputStream();
          currentBitmap.compress(Bitmap.CompressFormat.PNG,
@@ -126,7 +140,7 @@ public class TaskActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response != null) {
-                    //parseJson(response);
+                    parseJson(response);
                 }
                 Log.d(TAG, "RESPONSE FROM SERVER:" + response);
             }
@@ -175,5 +189,29 @@ public class TaskActivity extends AppCompatActivity {
         }
 
     }
+*/
 
+    // a method that display a quote each time a photo is taken by the user.
+    private class getQuoteTask extends AsyncTask<Void,Void,String> {
+        private Exception exception;
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                Forismatic.Quote quote = new Forismatic(Forismatic.ENGLISH).getQuote();
+                String text = quote.getQuoteText();
+                System.out.println(text);
+                return text;
+            } catch (Exception e) {
+                this.exception = e;
+                System.out.println(e);
+                return "Start exploring!";
+            }
+        }
+        protected void onPostExecute(String result) {
+            quoteText = result + "\n" + "Remaining task:" + numOfTask;
+            quoteView.setText(quoteText);
+            numOfTask--;
+        }
+    }
 }
