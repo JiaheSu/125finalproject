@@ -1,12 +1,15 @@
 package com.example.a125finalproject;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ImageButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -37,12 +39,19 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
-
+/*
+import edmt.dev.edmtdevcognitivevision.Contract.AnalysisResult;
+import edmt.dev.edmtdevcognitivevision.Contract.Caption;
+import edmt.dev.edmtdevcognitivevision.Rest.VisionServiceException;
+import edmt.dev.edmtdevcognitivevision.VisionServiceClient;
+import edmt.dev.edmtdevcognitivevision.VisionServiceRestClient;
+*/
 
 public class TaskActivity extends AppCompatActivity {
 
@@ -60,69 +69,29 @@ public class TaskActivity extends AppCompatActivity {
     private String quoteText;
     private int numOfTask = 4;
 
-    private ImageButton imageBToL;
-    private ImageButton imageBToR;
-    private ImageButton imageBDoL;
-    private ImageButton imageBDoR;
+    private Button buttonCamera;
     private Button buttonFinish;
-    private Intent intentI;
-    private Intent intentII;
-    private Intent intentIII;
-    private Intent intentIV;
-    private Bitmap bmp1;
-    private Bitmap bmp2;
-    private Bitmap bmp3;
-    private Bitmap bmp4;
+    private ImageView imageViewToL;
+    private ImageView imageViewToR;
+    private ImageView imageViewDoL;
+    private ImageView imageViewDoR;
+    private Intent intent;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
         bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(),R.drawable.starrynight);
 
-        imageBToL = findViewById(R.id.imageBToL);
-        imageBToR = findViewById(R.id.imageBToR);
-        imageBDoL = findViewById(R.id.imageBDoL);
-        imageBDoR = findViewById(R.id.imageBDoR);
-        quoteView = findViewById(R.id.quoteView);
-
-        imageBToL.setOnClickListener(new View.OnClickListener() {
+        buttonCamera = findViewById(R.id.buttonCamera);
+        buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentI = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentI.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentI, 1);
-                }
-            }
-        });
-
-        imageBToR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intentII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentII.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentII, 2);
-                }
-            }
-        });
-
-        imageBDoL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intentIII = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentIII.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentIII, 3);
+                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
                 }
                 startActivity(intent);
-            }
-        });
-
-        imageBDoR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intentIV = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intentIV.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentIV, 4);
-                }
             }
         });
 
@@ -130,82 +99,25 @@ public class TaskActivity extends AppCompatActivity {
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    //Write file
-                    String filename1 = "bitmap1.png";
-                    FileOutputStream stream1 = openFileOutput(filename1, Context.MODE_PRIVATE);
-                    bmp1.compress(Bitmap.CompressFormat.PNG, 100, stream1);
-                    String filename2 = "bitmap2.png";
-                    FileOutputStream stream2 = openFileOutput(filename2, Context.MODE_PRIVATE);
-                    bmp2.compress(Bitmap.CompressFormat.PNG, 100, stream2);
-                    String filename3 = "bitmap3.png";
-                    FileOutputStream stream3 = openFileOutput(filename3, Context.MODE_PRIVATE);
-                    bmp3.compress(Bitmap.CompressFormat.PNG, 100, stream3);
-                    String filename4 = "bitmap4.png";
-                    FileOutputStream stream4 = openFileOutput(filename4, Context.MODE_PRIVATE);
-                    bmp4.compress(Bitmap.CompressFormat.PNG, 100, stream4);
-
-                    //Cleanup
-                    stream1.close();
-                    bmp1.recycle();
-                    stream2.close();
-                    bmp2.recycle();
-                    stream3.close();
-                    bmp3.recycle();
-                    stream4.close();
-                    bmp4.recycle();
-
-                    //Pop intent
-                    Intent in1 = new Intent(TaskActivity.this, AlbumActivity.class);
-                    in1.putExtra("image1", filename1);
-                    in1.putExtra("image2", filename2);
-                    in1.putExtra("image3", filename3);
-                    in1.putExtra("image4", filename4);
-                    startActivity(in1);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                Intent intent2 = new Intent(TaskActivity.this, AlbumActivity.class);
+                startActivity(intent2);
             }
         });
-        new getQuoteTask().execute();
-    }
+
+        imageViewToL = findViewById(R.id.imageViewToL);
+
+        imageViewToR = findViewById(R.id.imageViewToR);
+
+        imageViewDoL = findViewById(R.id.imageViewDoL);
+
+        imageViewDoR = findViewById(R.id.imageViewDoR);
+
+        quoteView = findViewById(R.id.quoteView);
 
         //QUEUE = Volley.newRequestQueue(TaskActivity.this);
         //httpGET(URLHTTP, bitmap);
-    protected void onActivityResult(int requestCode, int resultCode, Intent list) {
-        super.onActivityResult(requestCode, resultCode, list);
-        switch(requestCode){
-            case 1:
-                if(resultCode == RESULT_OK){
-                    Bundle extras = list.getExtras();
-                    bmp1 = (Bitmap) extras.get("data");
-                    imageBToL.setImageBitmap(bmp1);
-                }
-                break;
-            case 2:
-                if(resultCode == RESULT_OK) {
-                    Bundle extras = list.getExtras();
-                    bmp2 = (Bitmap) extras.get("data");
-                    imageBToR.setImageBitmap(bmp2);
-                }
-                break;
-            case 3:
-                if(resultCode == RESULT_OK) {
-                    Bundle extras = list.getExtras();
-                    bmp3 = (Bitmap) extras.get("data");
-                    imageBDoL.setImageBitmap(bmp3);
-                }
-                break;
-            case 4:
-                if(resultCode == RESULT_OK) {
-                    Bundle extras = list.getExtras();
-                    bmp4 = (Bitmap) extras.get("data");
-                    imageBDoR.setImageBitmap(bmp4);
-                }
-                break;
-        }
+        new getQuoteTask().execute();
     }
-
 
 /*
     /**
