@@ -78,6 +78,10 @@ public class TaskActivity extends AppCompatActivity {
     private Intent intentII;
     private Intent intentIII;
     private Intent intentIV;
+    private Bitmap bmp1;
+    private Bitmap bmp2;
+    private Bitmap bmp3;
+    private Bitmap bmp4;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,7 +223,7 @@ public class TaskActivity extends AppCompatActivity {
 */
 
     // a method that display a quote each time a photo is taken by the user.
-    private class getQuoteTask extends AsyncTask<Void,Void,String> {
+        class getQuoteTask extends AsyncTask<Void,Void,String> {
         private Exception exception;
 
         @Override
@@ -239,6 +243,39 @@ public class TaskActivity extends AppCompatActivity {
             quoteText = result + "\n" + "Remaining task:" + numOfTask;
             quoteView.setText(quoteText);
             numOfTask--;
+        }
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent list) {
+        super.onActivityResult(requestCode, resultCode, list);
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    Bundle extras = list.getExtras();
+                    bmp1 = (Bitmap) extras.get("data");
+                    imageBToL.setImageBitmap(bmp1);
+                }
+                break;
+            case 2:
+                if (resultCode == RESULT_OK) {
+                    Bundle extras = list.getExtras();
+                    bmp2 = (Bitmap) extras.get("data");
+                    imageBToR.setImageBitmap(bmp2);
+                }
+                break;
+            case 3:
+                if (resultCode == RESULT_OK) {
+                    Bundle extras = list.getExtras();
+                    bmp3 = (Bitmap) extras.get("data");
+                    imageBDoL.setImageBitmap(bmp3);
+                }
+                break;
+            case 4:
+                if (resultCode == RESULT_OK) {
+                    Bundle extras = list.getExtras();
+                    bmp4 = (Bitmap) extras.get("data");
+                    imageBDoR.setImageBitmap(bmp4);
+                }
+                break;
         }
     }
 }
