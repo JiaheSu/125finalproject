@@ -34,7 +34,7 @@
         android:layout_marginBottom="40dp"
         android:text="Weather"
         android:textColor="#111111"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
