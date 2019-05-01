@@ -15,7 +15,7 @@
         android:layout_marginTop="100dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/campus"
+        android:src="@drawable/unknown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +42,7 @@
         android:layout_marginRight="40dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/color"
+        android:src="@drawable/unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +69,7 @@
         android:layout_marginBottom="20dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/nature"
+        android:src="@drawable/unknown"
         app:layout_constraintBottom_toTopOf="@+id/textViewDR"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -95,7 +95,7 @@
         android:layout_marginBottom="20dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/toContinue"
+        android:src="@drawable/unknown"
         app:layout_constraintBottom_toTopOf="@+id/textViewDL"
         app:layout_constraintStart_toStartOf="parent" />
 
