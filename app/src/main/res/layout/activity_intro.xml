@@ -95,7 +95,7 @@
         android:layout_marginBottom="20dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/continue"
+        android:src="@drawable/tobecontinue"
         app:layout_constraintBottom_toTopOf="@+id/textViewDL"
         app:layout_constraintStart_toStartOf="parent" />
 
