@@ -96,6 +96,7 @@ public class TaskActivity extends AppCompatActivity {
                 if (intentI.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intentI, 1);
                 }
+
             }
         });
 
