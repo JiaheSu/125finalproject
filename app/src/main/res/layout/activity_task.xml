@@ -11,10 +11,12 @@
         android:id="@+id/imageBDoR"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageBToR"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
@@ -22,9 +24,11 @@
         android:layout_width="163dp"
         android:layout_height="163dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageBToL"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
@@ -33,7 +37,7 @@
         android:layout_height="163dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/imageBDoR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quoteView"
@@ -45,7 +49,7 @@
         android:layout_height="163dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="80dp"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/imageBDoL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quoteView"
@@ -66,11 +70,12 @@
     <TextView
         android:id="@+id/quoteView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="160dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="160dp"
         android:text="Start exploring!"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
